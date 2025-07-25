@@ -7,7 +7,7 @@ export class AuthService {
 
   login(role: 'admin' | 'user') {
     localStorage.setItem('role', role);
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 
   isLoggedIn(): boolean {
