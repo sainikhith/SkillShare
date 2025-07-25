@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  constructor(private router: Router) {}
+
   login(role: 'admin' | 'user') {
-    localStorage.setItem('role', role); // Save user role
+    localStorage.setItem('role', role);
+    this.router.navigate(['/dashboard']);
   }
 
   isLoggedIn(): boolean {
