@@ -3,7 +3,7 @@ import { DashboardComponent } from './pages/dashboard-component/dashboard-compon
 import { Home } from './pages/home/home';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: Home, canActivate: [] },
   {
     path: 'dashboard',
