@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AddResourceDialog } from "../../add-resource-dialog/add-resource-dialog";
+import { AddResource } from "../../add-resource/add-resource";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, AddResource],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
