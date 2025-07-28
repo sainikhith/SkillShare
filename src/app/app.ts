@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Home } from './pages/home/home';
 import { AddResource } from "./add-resource/add-resource";
@@ -13,5 +13,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 })
 
 export class App {
+
   //protected readonly title = signal('skillshare');
 }
