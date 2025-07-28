@@ -3,6 +3,8 @@ import { AddResourceDialog } from '../add-resource-dialog/add-resource-dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Inject } from '@angular/core';
+import { ResourcesService } from '../resources';
 
 
 @Component({
@@ -12,20 +14,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './add-resource.scss'
 })
 export class AddResource {
-  
-  @Output() resource = signal<string>('');
-  constructor(private dialog :MatDialog) {}
+  //the output signal for the users selection 
 
-  openAddResourceDialog(): void {
+  private resource = ' '; 
+
+  constructor(private dialog :MatDialog, private resourcesService: ResourcesService) {
+  }
+
+
+  //open the dialog to allow user to enter a resource value and submit this. 
+  openAddResourceDialog(): void 
+  {
     const dialogRef = this.dialog.open(AddResourceDialog);
-    
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if(result){
-        // Handle the result from the dialog if needed
-        console.log('Dialog result:', result);
-        this.resource = result; // Update the resource signal with the dialog result
-      }
-    });
+        this.resource = result;
+        this.resourcesService.addResource(this.resource);    
+        }
+  });
+
   }
 }

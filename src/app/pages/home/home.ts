@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AddResource } from "../../add-resource/add-resource";
+import { Inject } from '@angular/core';
+import { ResourcesService } from '../../resources';
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule, RouterModule],
-  import { AddResourceDialog } from "../../add-resource-dialog/add-resource-dialog";
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
+
   resources = [
     'banana object 1',
     'banana object 2',
@@ -17,4 +19,9 @@ export class Home {
     'banana object 4',
     'banana object 5',
   ];
+
+  constructor(private resourcesService: ResourcesService) {
+    this.resources = this.resourcesService.getResources();
+    }
+  
 }
