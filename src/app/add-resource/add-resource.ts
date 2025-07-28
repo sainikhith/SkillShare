@@ -1,3 +1,4 @@
+
 import { Component, Output, output, signal } from '@angular/core';
 import { AddResourceDialog } from '../add-resource-dialog/add-resource-dialog';
 import { MatDialog } from '@angular/material/dialog';
@@ -5,7 +6,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Inject } from '@angular/core';
 import { ResourcesService } from '../resources';
-
 
 @Component({
   selector: 'app-add-resource',
